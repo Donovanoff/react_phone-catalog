@@ -1,0 +1,7 @@
+@import '../../main.scss';
+
+.home {
+  &__title {
+    @include h1-title;
+  }
+}

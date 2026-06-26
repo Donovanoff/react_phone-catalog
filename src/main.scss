@@ -1,0 +1,41 @@
+@import './styles/normalize';
+@import './styles/fonts';
+@import './styles/mixins';
+@import './styles/typography';
+@import './styles/vars';
+
+body {
+  font-family: Mont, sans-serif;
+  font-weight: 500;
+  background-color: $color-main-bg;
+  color: $color-white;
+  scroll-behavior: smooth;
+}
+
+.app {
+  position: relative;
+
+  &__main {
+    padding-top: 48px;
+
+    @include onDesktop {
+      padding-top: 64px;
+    }
+  }
+}
+
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+  margin: 0 auto;
+
+  @include onTablet {
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    max-width: 1200px;
+    padding: 0 32px;
+  }
+}
