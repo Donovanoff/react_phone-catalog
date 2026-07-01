@@ -1,0 +1,110 @@
+@import '../../main.scss';
+
+.footer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  border-top: 1px solid $color-elements;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+
+  @include onTablet {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+.logo {
+  display: flex;
+  width: max-content;
+
+  @include hover(scale, 1.1);
+
+  &Img {
+    display: block;
+    width: 89px;
+    height: 32px;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    gap: 106px;
+  }
+
+  &Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: $color-white;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    width: max-content;
+    transition: 0.3s;
+
+    @include hover(scale, 1.1);
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
+  color: $color-secondary;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  @include hover(color, $color-white);
+  @include hover(scale, 1.07);
+
+  @include onTablet {
+    margin: 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    margin-left: 16px;
+
+    background-image: url("../../img/icons/vector-top.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 32px;
+    height: 32px;
+    background-color: $color-surface2;
+    transition: 0.3s;
+  }
+
+  &:hover::after {
+    background-color: $color-icons;
+  }
+}
+
+

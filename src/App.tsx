@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import './main.scss';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
+import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ export const App: React.FC = () => {
         </Routes>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
