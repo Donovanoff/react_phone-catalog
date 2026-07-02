@@ -1,0 +1,35 @@
+@import '../../main.scss';
+
+.home {
+  padding-top: 24px;
+  padding-bottom: 64px;
+
+  @include onTablet {
+    padding-top: 32px;
+  }
+
+  @include onDesktop {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  @include onTablet {
+    gap: 64px;
+  }
+
+  @include onTablet {
+    gap: 80px;
+  }
+}
+
+.title {
+  @include h1-title;
+  display: block;
+  width: 100%;
+}
