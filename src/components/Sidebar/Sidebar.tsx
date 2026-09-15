@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.scss';
 import { heartImg, shopBagImg } from '../../utils/imageStore';
+import { useAppContext } from '../../context/AppContext';
 
 type Props = {
   hasMenu: boolean;
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export const Sidebar: React.FC<Props> = ({ hasMenu, closeMenu }) => {
+  const { cart, favourites } = useAppContext();
+
   return (
     <div
       className={cn(styles.sidebar, { [styles['sidebar--active']]: hasMenu })}
@@ -80,7 +83,11 @@ export const Sidebar: React.FC<Props> = ({ hasMenu, closeMenu }) => {
               alt="favourite"
               className={styles['sidebar__icon--img']}
             />
-            <p className={styles['sidebar__icon-number']}>12</p>
+            {favourites.length > 0 && (
+              <p className={styles['sidebar__icon-number']}>
+                {favourites.length}
+              </p>
+            )}
           </div>
         </NavLink>
         <NavLink
@@ -98,7 +105,9 @@ export const Sidebar: React.FC<Props> = ({ hasMenu, closeMenu }) => {
               alt="shopBag"
               className={styles['sidebar__icon--img']}
             />
-            <p className={styles['sidebar__icon-number']}>12</p>
+            {cart.length > 0 && (
+              <p className={styles['sidebar__icon-number']}>{cart.length}</p>
+            )}
           </div>
         </NavLink>
       </div>

@@ -10,9 +10,12 @@ import styles from './Header.module.scss';
 import cn from 'classnames';
 import { useEffect, useState } from 'react';
 import { Sidebar } from '../Sidebar';
+import { useAppContext } from '../../context/AppContext';
 
 export const Header: React.FC = () => {
   const [hasMenu, setHasMenu] = useState(false);
+
+  const { cart, favourites } = useAppContext();
 
   useEffect(() => {
     if (hasMenu) {
@@ -112,7 +115,11 @@ export const Header: React.FC = () => {
                 alt="favourite"
                 className={styles['header__icon--img']}
               />
-              <p className={styles['header__icon-number']}>12</p>
+              {favourites.length > 0 && (
+                <p className={styles['header__icon-number']}>
+                  {favourites.length}
+                </p>
+              )}
             </div>
           </NavLink>
           <NavLink
@@ -129,7 +136,9 @@ export const Header: React.FC = () => {
                 alt="shopBag"
                 className={styles['header__icon--img']}
               />
-              <p className={styles['header__icon-number']}>12</p>
+              {cart.length > 0 && (
+                <p className={styles['header__icon-number']}>{cart.length}</p>
+              )}
             </div>
           </NavLink>
         </div>
