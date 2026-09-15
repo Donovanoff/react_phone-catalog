@@ -11,17 +11,17 @@ function request<T>(url: string): Promise<T> {
 }
 
 export function getProducts() {
-  return request<Product[]>('/api/products.json');
+  return request<Product[]>('./api/products.json');
 }
 
 export function getPhones() {
-  return request<Phone[]>('/api/phones.json');
+  return request<Phone[]>('./api/phones.json');
 }
 
 export function getTablets() {
-  return request<Tablet[]>('/api/tablets.json');
+  return request<Tablet[]>('./api/tablets.json');
 }
 
 export function getAccessories() {
-  return request<Accessory[]>('/api/accessories.json');
+  return request<Accessory[]>('./api/accessories.json');
 }

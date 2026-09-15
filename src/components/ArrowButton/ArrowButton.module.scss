@@ -1,0 +1,23 @@
+@import '../../main.scss';
+
+.button {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  color: $color-white;
+  background-color: $color-surface2;
+  border: none;
+  cursor: pointer;
+
+  @include hover (background-color, $color-icons);
+
+  &:disabled {
+    background-color: inherit;
+    border: 1px solid $color-icons;
+    color: $color-icons;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,28 @@
+@import '../../main.scss';
+
+.button {
+  width: 100%;
+  padding: 9.5px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  color: $color-white;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color-accent;
+
+  @include hover(background-color, $color-button-hover);
+}
+
+.selected {
+  background-color: $color-surface2;
+
+  @include hover(background-color, $color-surface2);
+}

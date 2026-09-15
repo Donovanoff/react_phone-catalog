@@ -38,16 +38,20 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
   };
 
   const toggleFavorite = (product: Product) => {
-    const isFavorite = favourites.some(
-      (item: Product) => item.id === product.id,
+    const isFavorite = favourites?.some(
+      (item: Product) =>
+        (item?.id || item?.itemId) === (product?.id || product?.itemId),
     );
 
     if (isFavorite) {
       setFavourites(
-        favourites.filter((item: Product) => item.id !== product.id),
+        favourites.filter(
+          (item: Product) =>
+            (item?.id || item?.itemId) !== (product?.id || product?.itemId),
+        ),
       );
     } else {
-      setFavourites([...favourites, product]);
+      setFavourites([...(favourites || []), product]);
     }
   };
 
