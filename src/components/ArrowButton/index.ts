@@ -1,1 +1,1 @@
-export * from './ArrowButton.tsx'
+export * from './ArrowButton';

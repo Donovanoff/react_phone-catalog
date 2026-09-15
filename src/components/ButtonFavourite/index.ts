@@ -1,1 +1,1 @@
-export * from './ButtonFavourite.tsx';
+export * from './ButtonFavourite';
