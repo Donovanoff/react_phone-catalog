@@ -5,6 +5,8 @@ import { Banner } from '../../components/Banner';
 import { ProductsSlider } from '../../components/ProductsSlider';
 import { getProducts } from '../../utils/useApi';
 import { Product } from '../../utils/types';
+import { Category } from '../../components/Category';
+import { accessoriesImg, phonesImg, tabletsImg } from '../../utils/imageStore';
 
 export const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -21,6 +23,15 @@ export const HomePage: React.FC = () => {
 
   const newModels = [...uniqueProducts]
     .sort((a, b) => b.year - a.year)
+    .slice(0, 10);
+
+  const hotPricesModels = [...uniqueProducts]
+    .sort((a, b) => {
+      const discountA = a.fullPrice - a.price;
+      const discountB = b.fullPrice - b.price;
+
+      return discountB - discountA;
+    })
     .slice(0, 10);
 
   useEffect(() => {
@@ -47,6 +58,36 @@ export const HomePage: React.FC = () => {
           </div>
           <div>
             <ProductsSlider title="Brand new models" products={newModels} />
+          </div>
+          <div>
+            <h2 className={styles.sectionTitle}>Shop by category</h2>
+            <div className={styles.categories}>
+              <Category
+                title="Mobile phones"
+                quantity={95}
+                image={phonesImg}
+                linkTo="/phones"
+              />
+              <Category
+                title="Tablets"
+                quantity={24}
+                image={tabletsImg}
+                linkTo="/tablets"
+              />
+              <Category
+                title="Accessories"
+                quantity={100}
+                image={accessoriesImg}
+                linkTo="/accessories"
+              />
+            </div>
+          </div>
+          <div>
+            <ProductsSlider
+              title="Hot prices"
+              products={hotPricesModels}
+              showDiscount={true}
+            />
           </div>
         </div>
       </div>

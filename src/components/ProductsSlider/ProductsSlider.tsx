@@ -7,9 +7,14 @@ import { Product } from '../../utils/types';
 type Props = {
   title: string;
   products: Product[];
+  showDiscount?: boolean;
 };
 
-export const ProductsSlider: React.FC<Props> = ({ title, products }) => {
+export const ProductsSlider: React.FC<Props> = ({
+  title,
+  products,
+  showDiscount,
+}) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -45,7 +50,7 @@ export const ProductsSlider: React.FC<Props> = ({ title, products }) => {
         const visibleWindowWidth =
           trackRef.current.parentElement?.clientWidth || windowWidth;
 
-        setMaxTranslate(trackFullWidth - visibleWindowWidth);
+        setMaxTranslate(trackFullWidth - visibleWindowWidth + 16);
       }
     };
 
@@ -83,7 +88,11 @@ export const ProductsSlider: React.FC<Props> = ({ title, products }) => {
           }}
         >
           {products.map(product => (
-            <ProductCard key={product.itemId} product={product} />
+            <ProductCard
+              key={product.itemId}
+              product={product}
+              showDiscount={showDiscount}
+            />
           ))}
         </div>
       </div>

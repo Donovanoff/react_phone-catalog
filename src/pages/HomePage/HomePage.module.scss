@@ -33,3 +33,16 @@
   display: block;
   width: 100%;
 }
+
+.sectionTitle {
+  @include h2-title;
+  display: block;
+
+  margin-bottom: 24px;
+}
+
+.categories {
+  @include pageGrid;
+
+  row-gap: 32px;
+}

@@ -6,6 +6,9 @@ import heart from '../img/icons/Favourites.svg';
 import heartFilled from '../img/icons/Favourites-Filled.svg';
 import slider1 from '../img/slider1.png';
 import slider2 from '../img/banner-phones.png';
+import phones from '../img/Phones.png';
+import tablets from '../img/Tablets.png';
+import accessories from '../img/Accessories.png';
 
 export const logoImg = logo;
 export const menuImg = menu;
@@ -15,3 +18,6 @@ export const heartImg = heart;
 export const heartFilledImg = heartFilled;
 export const bannerImg1 = slider1;
 export const bannerImg2 = slider2;
+export const phonesImg = phones;
+export const tabletsImg = tablets;
+export const accessoriesImg = accessories;
