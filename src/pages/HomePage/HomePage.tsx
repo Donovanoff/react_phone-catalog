@@ -34,6 +34,16 @@ export const HomePage: React.FC = () => {
     })
     .slice(0, 10);
 
+  const phonesCount = products.filter(
+    item => item.category === 'phones',
+  ).length;
+  const tabletCount = products.filter(
+    item => item.category === 'tablets',
+  ).length;
+  const accessoriesCount = products.filter(
+    item => item.category === 'accessories',
+  ).length;
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -64,19 +74,19 @@ export const HomePage: React.FC = () => {
             <div className={styles.categories}>
               <Category
                 title="Mobile phones"
-                quantity={95}
+                quantity={phonesCount}
                 image={phonesImg}
                 linkTo="/phones"
               />
               <Category
                 title="Tablets"
-                quantity={24}
+                quantity={tabletCount}
                 image={tabletsImg}
                 linkTo="/tablets"
               />
               <Category
                 title="Accessories"
-                quantity={100}
+                quantity={accessoriesCount}
                 image={accessoriesImg}
                 linkTo="/accessories"
               />
