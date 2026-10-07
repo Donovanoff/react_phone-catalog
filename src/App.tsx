@@ -4,6 +4,7 @@ import './main.scss';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { Footer } from './components/Footer';
+import { CatalogPage } from './pages/CatalogPage';
 
 export const App: React.FC = () => {
   return (
@@ -14,6 +15,19 @@ export const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to={'/'} replace />} />
+
+          <Route
+            path="/phones"
+            element={<CatalogPage category="phones" title="Mobile phones" />}
+          />
+          <Route
+            path="/tablets"
+            element={<CatalogPage category="tablets" title="Tablets" />}
+          />
+          <Route
+            path="/accessories"
+            element={<CatalogPage category="accessories" title="Accessories" />}
+          />
 
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>

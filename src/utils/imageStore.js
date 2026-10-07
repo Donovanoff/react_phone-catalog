@@ -9,6 +9,9 @@ import slider2 from '../img/banner-phones.png';
 import phones from '../img/Phones.png';
 import tablets from '../img/Tablets.png';
 import accessories from '../img/Accessories.png';
+import home from '../img/icons/Home.svg';
+import arrowR from '../img/icons/arrowR.svg';
+import arrowUp from '../img/icons/arrowUp.svg';
 
 export const logoImg = logo;
 export const menuImg = menu;
@@ -21,3 +24,6 @@ export const bannerImg2 = slider2;
 export const phonesImg = phones;
 export const tabletsImg = tablets;
 export const accessoriesImg = accessories;
+export const homeImg = home;
+export const arrowRightImg = arrowR;
+export const arrowTopImg = arrowUp;

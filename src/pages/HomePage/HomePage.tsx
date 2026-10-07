@@ -8,18 +8,12 @@ import { Product } from '../../utils/types';
 import { Category } from '../../components/Category';
 import { accessoriesImg, phonesImg, tabletsImg } from '../../utils/imageStore';
 
+import { getUniqueProducts } from '../../utils/helpers';
+
 export const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
-  const uniqueProducts = products.filter((product, index, array) => {
-    const baseName = product.name.split(product.capacity)[0].trim();
-
-    const isFirst =
-      array.findIndex(p => p.name.split(p.capacity)[0].trim() === baseName) ===
-      index;
-
-    return isFirst;
-  });
+  const uniqueProducts = getUniqueProducts(products);
 
   const newModels = [...uniqueProducts]
     .sort((a, b) => b.year - a.year)

@@ -1,0 +1,89 @@
+@import '../../main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  @include small-text;
+  color: $color-secondary;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  background-color: $color-surface2;
+  border: 1px solid $color-surface2;
+  color: $color-white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: $color-icons;
+  }
+
+  &.isOpen {
+    border-color: $color-accent;
+  }
+}
+
+.triggerText {
+  @include body-text;
+  color: $color-white;
+}
+
+.arrow {
+  color: $color-secondary;
+  transition: transform 0.2s ease;
+  transform: rotate(180deg);
+
+  &Up {
+    transform: rotate(0deg);
+  }
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background-color: $color-main-bg;
+  border: 1px solid $color-elements;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.menuItem {
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  @include body-text;
+  color: $color-secondary;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $color-surface2;
+    color: $color-white;
+  }
+
+  &Active {
+    background-color: $color-surface2;
+    color: $color-white;
+  }
+}

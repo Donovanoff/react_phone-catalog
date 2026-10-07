@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
             </NavLink>
 
             <NavLink
-              to="/test1"
+              to="/phones"
               className={({ isActive }) =>
                 cn(styles.nav__link, {
                   [styles['nav__link--active']]: isActive,
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
             </NavLink>
 
             <NavLink
-              to="/test2"
+              to="/tablets"
               className={({ isActive }) =>
                 cn(styles.nav__link, {
                   [styles['nav__link--active']]: isActive,
@@ -79,7 +79,7 @@ export const Header: React.FC = () => {
             </NavLink>
 
             <NavLink
-              to="/test3"
+              to="/accessories"
               className={({ isActive }) =>
                 cn(styles.nav__link, {
                   [styles['nav__link--active']]: isActive,
@@ -102,7 +102,7 @@ export const Header: React.FC = () => {
             />
           </a>
           <NavLink
-            to="/favorites"
+            to="/favourites"
             className={({ isActive }) =>
               cn(styles.header__icon, styles['header__icon--tablet'], {
                 [styles['header__icon--active']]: isActive,

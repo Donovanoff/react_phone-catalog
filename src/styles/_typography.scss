@@ -59,3 +59,21 @@
     line-height: 26px;
   }
 }
+
+@mixin body-text {
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0;
+  color: $color-secondary;
+}
+
+@mixin small-text {
+  font-family: Mont, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0;
+  color: $color-secondary;
+}
