@@ -15,12 +15,14 @@ import {
   getSearchWith,
   SearchParams,
 } from '../../utils/helpers';
+import { SkeletonCard } from '../SkeletonCard';
 
 type Props = {
   products: Product[];
   title: string;
   category?: 'phones' | 'tablets' | 'accessories' | 'favourites';
   hasError?: boolean;
+  isLoading?: boolean;
 };
 
 const sortOptions: DropdownOption[] = [
@@ -42,6 +44,7 @@ export const Catalog: React.FC<Props> = ({
   title,
   category,
   hasError,
+  isLoading,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -110,7 +113,15 @@ export const Catalog: React.FC<Props> = ({
           {products.length} {category === 'favourites' ? 'items' : 'models'}
         </div>
 
-        {hasError ? (
+        {isLoading ? (
+          <div className={styles.productList}>
+            {Array.from({ length: 32 }).map((_, index) => (
+              <div className={styles.product} key={index}>
+                <SkeletonCard />
+              </div>
+            ))}
+          </div>
+        ) : hasError ? (
           <Error message="Something went wrong" />
         ) : (
           <>
