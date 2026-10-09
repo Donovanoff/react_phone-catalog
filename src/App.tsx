@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { Footer } from './components/Footer';
 import { CatalogPage } from './pages/CatalogPage';
+import { FavouritesPage } from './pages/FavouritesPage';
 
 export const App: React.FC = () => {
   return (
@@ -28,6 +29,8 @@ export const App: React.FC = () => {
             path="/accessories"
             element={<CatalogPage category="accessories" title="Accessories" />}
           />
+
+          <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>

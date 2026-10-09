@@ -1,0 +1,139 @@
+@import '../../main.scss';
+
+.catalog {
+  padding-top: 24px;
+  padding-bottom: 64px;
+
+  @include onDesktop{
+    padding-bottom: 80px;
+  }
+}
+
+.breadcrumbs {
+  margin-bottom: 24px;
+}
+
+.title {
+  @include h1-title;
+
+  margin-bottom: 8px;
+}
+
+.count {
+  @include body-text;
+
+  margin-bottom: 32px;
+}
+
+.filter {
+  @include pageGrid;
+
+  margin-bottom: 24px;
+}
+
+.sort {
+  grid-column: span 2;
+
+  @include onTablet {
+    grid-column: 1 / 5;
+  }
+}
+
+.itemsPerPage {
+  grid-column: span 2;
+
+  @include onTablet {
+    grid-column: 5 / 8;
+  }
+}
+
+.productList {
+  @include pageGrid;
+  row-gap: 40px;
+}
+
+.product {
+  grid-column: span 4;
+
+  @include onTablet {
+    grid-column: span 6;
+  }
+
+  @include onWideTablet {
+    grid-column: span 4;
+  }
+
+  @include onDesktop {
+    grid-column: span 6;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin-top: 24px;
+
+  @include onTablet {
+    margin-top: 40px;
+  }
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.numberPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+
+  border: none;
+  cursor: pointer;
+
+  @include body-text;
+  color: $color-white;
+
+  background-color: $color-surface1;
+
+  &Active {
+    background-color: $color-accent;
+  }
+
+  &:not(&Active) {
+    @include hover(background-color, $color-icons);
+  }
+}
+
+.dots {
+  background-color: $color-main-bg;
+  cursor: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+
+  border: none;
+
+  @include body-text;
+  color: $color-white;
+}
+
+.noResults {
+  @include h2-title;
+  color: $color-secondary;
+  margin-top: 40px;
+  text-align: left;
+}

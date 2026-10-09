@@ -3,13 +3,14 @@ import styles from './Breadcrumbs.module.scss';
 import { arrowRightImg, homeImg } from '../../utils/imageStore';
 
 type Props = {
-  category: 'phones' | 'tablets' | 'accessories';
+  category: 'phones' | 'tablets' | 'accessories' | 'favourites';
 };
 
 const breadcrumbs = {
   phones: 'Phones',
   tablets: 'Tablets',
   accessories: 'Accessories',
+  favourites: 'Favourites',
 };
 
 export const Breadcrumbs: React.FC<Props> = ({ category }) => {
