@@ -16,6 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 
   margin-bottom: 24px;
 
@@ -45,6 +46,8 @@
   text-decoration: none;
 
   margin-bottom: 8px;
+
+  @include hover(color, $color-secondary);
 }
 
 .prices {

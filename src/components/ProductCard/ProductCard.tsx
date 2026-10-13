@@ -15,7 +15,17 @@ export const ProductCard: React.FC<Props> = ({
   product,
   showDiscount = false,
 }) => {
-  const { name, image, price, fullPrice, screen, capacity, ram } = product;
+  const {
+    name,
+    image,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+    category,
+    itemId,
+  } = product;
   const { addToCart, removeFromCart, toggleFavorite, favourites, cart } =
     useAppContext();
 
@@ -33,11 +43,11 @@ export const ProductCard: React.FC<Props> = ({
 
   return (
     <div className={styles.card}>
-      <div className={styles.imgBlock}>
+      <Link to={`/${category}/${itemId}`} className={styles.imgBlock}>
         <img src={image} alt={name} className={styles.img} />
-      </div>
+      </Link>
 
-      <Link to="#" className={styles.title}>
+      <Link to={`/${category}/${itemId}`} className={styles.title}>
         {name}
       </Link>
 

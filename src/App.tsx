@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { Footer } from './components/Footer';
 import { CatalogPage } from './pages/CatalogPage';
 import { FavouritesPage } from './pages/FavouritesPage';
+import { CartPage } from './pages/CartPage';
 
 export const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ export const App: React.FC = () => {
           />
 
           <Route path="/favourites" element={<FavouritesPage />} />
+          <Route path="/cart" element={<CartPage />} />
 
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>

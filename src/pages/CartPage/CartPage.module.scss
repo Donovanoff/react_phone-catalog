@@ -1,0 +1,100 @@
+@import '../../main.scss';
+
+.content {
+  padding: 24px 0 56px 0;
+
+  @include onTablet {
+    padding: 24px 0 64px 0;
+  }
+}
+
+.backButton {
+  display: flex;
+  width: max-content;
+  text-decoration: none;
+  @include small-text;
+
+  color: $color-white;
+  margin-bottom: 24px;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  @include onTablet {
+    margin-bottom: 16px;
+  }
+}
+
+.title {
+  @include h1-title;
+
+  margin-bottom: 32px;
+}
+
+.main {
+  @include onDesktop {
+    @include pageGrid;
+  }
+}
+
+.empty {
+  display: flex;
+  justify-content: start;
+
+  @include body-text;
+
+  @include onTablet {
+    font-size: 16px;
+  }
+
+  @include onDesktop {
+    font-size: 18px;
+  }
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-bottom: 32px;
+
+  @include onDesktop {
+    grid-column: 1 / 17;
+  }
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid $color-elements;
+
+  padding: 24px;
+
+  @include onDesktop {
+    grid-column: 17 / -1;
+    height: max-content;
+  }
+}
+
+.price {
+  @include h2-title;
+}
+
+.quantity {
+  @include body-text;
+
+  margin-bottom: 16px;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: $color-elements;
+
+  margin-bottom: 16px;
+}

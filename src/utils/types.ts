@@ -43,6 +43,9 @@ export interface Product {
   year: number;
   image: string;
 }
+export interface CartProduct extends Product {
+  quantity: number;
+}
 
 export enum LocalStorageKeys {
   cart = 'cart',

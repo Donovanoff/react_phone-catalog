@@ -1,0 +1,102 @@
+@import '../../main.scss';
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  background-color: $color-surface1;
+
+  @include onTablet {
+    padding: 24px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
+
+.leftside {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  @include onTablet {
+    gap: 24px;
+  }
+}
+
+.cross {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-icons;
+  cursor: pointer;
+
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.imgLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+  padding: 7px;
+  object-fit: contain;
+}
+
+.title {
+  display: flex;
+  @include body-text;
+  color: $color-white;
+
+  text-decoration: none;
+
+  @include hover(color, $color-secondary);
+}
+
+.rightside {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onTablet {
+    width: 220px;
+    gap: 24px;
+  }
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include body-text;
+  color: $color-white;
+
+  width: 32px;
+  height: 32px;
+}
+
+.price {
+  @include h3-title;
+
+  @include onTablet {
+    display: flex;
+    justify-content: end;
+    width: 80px;
+  }
+}

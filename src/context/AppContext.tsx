@@ -1,15 +1,18 @@
 import { createContext, useContext } from 'react';
-import { LocalStorageKeys, Product } from '../utils/types';
+import { CartProduct, LocalStorageKeys, Product } from '../utils/types';
 import { useLocalStorage } from '../utils/useLocalStorage';
 
 interface AppContextType {
-  cart: Product[];
+  cart: CartProduct[];
   favourites: Product[];
 
   addToCart: (product: Product) => void;
   removeFromCart: (product: Product) => void;
+  clearCart: () => void;
 
   toggleFavorite: (product: Product) => void;
+  increaseQuantity: (product: Product) => void;
+  decreaseQuantity: (product: Product) => void;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -19,7 +22,10 @@ interface Props {
 }
 
 export const AppProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = useLocalStorage<Product[]>(LocalStorageKeys.cart, []);
+  const [cart, setCart] = useLocalStorage<CartProduct[]>(
+    LocalStorageKeys.cart,
+    [],
+  );
   const [favourites, setFavourites] = useLocalStorage<Product[]>(
     LocalStorageKeys.favourites,
     [],
@@ -29,7 +35,7 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
     const isAlreadyInCart = cart.some((p: Product) => p.id === product.id);
 
     if (!isAlreadyInCart) {
-      setCart([...cart, product]);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
 
@@ -55,12 +61,49 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
     }
   };
 
+  const increaseQuantity = (product: Product) => {
+    const newCart = cart.map((p: CartProduct) => {
+      if (p.id === product.id) {
+        return {
+          ...p,
+          quantity: p.quantity + 1,
+        };
+      }
+
+      return p;
+    });
+
+    setCart(newCart);
+  };
+
+  const decreaseQuantity = (product: Product) => {
+    const newCart = cart.map((p: CartProduct) => {
+      if (p.id === product.id) {
+        return {
+          ...p,
+          quantity: p.quantity > 1 ? p.quantity - 1 : 1,
+        };
+      }
+
+      return p;
+    });
+
+    setCart(newCart);
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
   const contextValue: AppContextType = {
     cart,
     favourites,
     addToCart,
     removeFromCart,
+    clearCart,
     toggleFavorite,
+    increaseQuantity,
+    decreaseQuantity,
   };
 
   return (

@@ -1,0 +1,100 @@
+@import '../../main.scss';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(15, 17, 33, 0.75);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background-color: $color-surface1;
+  border: 1px solid $color-elements;
+  padding: 32px 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.2s ease;
+}
+
+.title {
+  @include h4-title;
+  color: $color-white;
+  line-height: 140%;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+
+  @include onTablet {
+    gap: 24px;
+  }
+}
+
+.confirmBtn {
+  flex: 1;
+  height: 48px;
+  border: none;
+  background-color: $color-accent;
+  color: $color-white;
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  @include hover(background-color, $color-button-hover);
+}
+
+.cancelBtn {
+  flex: 1;
+  height: 48px;
+  border: 1px solid $color-elements;
+  background: transparent;
+  color: $color-white;
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  @include hover(background-color, $color-surface2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
